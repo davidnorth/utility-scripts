@@ -1,0 +1,14 @@
+#!/usr/bin/ruby
+
+`svn status`.each_line do |line|
+  if line =~ /\? +(.*)$/
+    print "Add #{$1} ?"
+    answer = gets.chomp
+    if answer.downcase == 'y'
+      puts `svn add #{$1}`
+    end
+  end
+end
+puts
+puts `svn status`
+

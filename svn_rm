@@ -1,0 +1,14 @@
+#!/usr/bin/ruby
+
+`svn status`.each_line do |line|
+  if line =~ /\! +(.*)$/
+    print "Remove #{$1} ?"
+    answer = gets.chomp
+    if answer.downcase == 'y'
+      puts `svn rm #{$1}`
+    end
+  end
+end
+puts
+puts `svn status`
+
