@@ -1,0 +1,10 @@
+#!/usr/bin/ruby
+
+appname = ARGV.shift
+template = ARGV.shift || 'default'
+
+cmd = "rails #{appname} -m http://github.com/davidnorth/application-templates/raw/master/#{template}.rb"
+puts cmd
+
+exec cmd
+
