@@ -5,6 +5,10 @@ branch_lines = `git branch`.split("\n")
 branch_names = branch_lines.reject { |line| line[0,1] == '*'}.map{|n| n.strip}
 
 puts 'Available branches:'
+
+branch_names.delete('master')
+branch_names.unshift 'master'
+
 branch_names.each_with_index do |name, index|
   puts "#{index+1}: #{name}"
 end
